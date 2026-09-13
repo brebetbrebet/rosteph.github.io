@@ -1,0 +1,9 @@
+Replace these files with your own photos (keep the same filenames):
+photo-08-1.jpg
+photo-08-2.jpg
+photo-08-3.jpg
+photo-08-4.jpg
+photo-08-5.jpg
+photo-08-6.jpg
+
+Six photos are used on page 08.
