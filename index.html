@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#17120f" />
+  <title>A Little Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="room">
+    <div class="sakura-field" id="sakuraField" aria-hidden="true"></div>
+    <div class="ambient"></div>
+    <div class="spotify-player" id="spotifyPlayer" aria-label="Music player">
+      <div class="spotify-cover"><span>♥</span></div>
+      <div class="spotify-info">
+        <strong id="trackTitle">our song</strong>
+        <span id="trackArtist">for you</span>
+        <div class="spotify-progress" id="spotifySeek"><i id="spotifyBar"></i></div>
+      </div>
+      <div class="spotify-controls">
+        <button id="musicPrev" aria-label="Previous song">‹</button>
+        <button id="musicPlay" class="spotify-play" aria-label="Play or pause">▶</button>
+        <button id="musicNext" aria-label="Next song">›</button>
+      </div>
+    </div>
+
+    <section class="intro" id="intro">
+      <div class="intro-copy">
+        <span class="tiny">Buku kecil RS</span>
+        <h1>HAIII, MANISS / CANTIK / SAYANGGKUUU.</h1>
+        <p>Kuuu buatt sesuatuuu.<br>FORRR YOU!</p>
+        <button id="openBook" class="open-book">open it <span>↗</span></button>
+      </div>
+      <!-- <div class="intro-hint">best read slowly</div> -->
+    </section>
+
+    <main class="stage" id="stage" aria-hidden="true">
+      <div class="book-wrap" id="bookWrap">
+        <div class="book-shadow"></div>
+        <div class="hardcover back-cover"></div>
+        <div class="page-block page-block-left"></div>
+        <div class="page-block page-block-right"></div>
+
+        <section class="book" id="book" aria-label="Interactive love book">
+          <div class="gutter-shadow"></div>
+          <div class="spread-base">
+            <div class="page-slot left-slot" id="leftSlot"></div>
+            <div class="page-slot right-slot" id="rightSlot"></div>
+          </div>
+
+          <div class="turn-sheet" id="turnSheet" aria-hidden="true">
+            <div class="sheet-face sheet-front" id="sheetFront"></div>
+            <div class="sheet-face sheet-back" id="sheetBack"></div>
+            <div class="fold-glow"></div>
+            <div class="fold-shadow"></div>
+          </div>
+
+          <div class="edge-sensor edge-prev" id="edgePrev" aria-label="Turn previous page"></div>
+          <div class="edge-sensor edge-next" id="edgeNext" aria-label="Turn next page"></div>
+          <div class="spine"></div>
+        </section>
+      </div>
+
+      <div class="controls">
+        <button id="prevBtn" aria-label="Previous spread">←</button>
+        <div class="progress"><i id="progressBar"></i></div>
+        <span id="pageLabel">cover</span>
+        <button id="nextBtn" aria-label="Next spread">→</button>
+      </div>
+      <!-- <div class="hint" id="hint">drag the outer edge of the paper</div> -->
+    </main>
+  </div>
+
+  <template id="p0">
+    <div class="paper cover-paper">
+      <div class="cover-frame"></div>
+      <div class="cover-copy"><span class="tiny light">for my favorite person</span>
+        <h2>things I<br><em>never want<br>to forget.</em></h2>
+        <p class="cover-sign">R × S</p>
+      </div>
+    </div>
+  </template>
+  <template id="p1">
+    <div class="paper beginning-page"><span class="folio">01</span>
+      <div class="chapter-label">chapter one</div>
+      <h3>Awalnyaaa<br>biasaaa ajaa.</h3>
+      <p class="lead">dannn ga tau gimanaa, kamuuu jadii orang favoritt ku.</p>
+      <p class="beginning-copy">Siapaa yang kiraa 1 chatt di linee bisaa jadii seseorangg yang aku tunggu tungguu tiappp
+        harii WKKWKWKW.</p>
+      <div class="you-moment">
+        <div class="you-caption"><span>then there was</span><strong>you.</strong><i>↓</i></div>
+        <div class="you-photo-wrap"><img class="you-photo" src="assets/her-photo.jpg" alt="Her photo"
+            onerror="this.closest('.you-photo-wrap').classList.add('missing-photo');this.style.display='none'" /></div>
+      </div>
+    </div>
+  </template>
+  <template id="p2">
+    <div class="paper collage"><span class="folio">02</span>
+      <div class="tape"></div>
+      <figure class="polaroid p1">
+        <div class="photo"><img src="assets/photo-02-1.jpg" alt="Our photo"></div>
+        <figcaption>one of my favorites</figcaption>
+      </figure>
+      <figure class="polaroid p2">
+        <div class="photo alt"><img src="assets/photo-02-2.jpg" alt="Our photo"></div>
+        <figcaption>still makes me smile</figcaption>
+      </figure>
+      <p class="side-note">Stephanie Aurellia P.<br>Cantik, Sabar, Lucu, Pengertian.</p>
+    </div>
+  </template>
+  <template id="p3">
+    <div class="paper quote">
+      <span class="folio">03</span>
+
+      <p class="eyeline">entah kapan</p>
+
+      <blockquote>
+        kamuuu bukann lagii orang yangg ku sukaa tokk<br>
+        <em>tapii kamu dah kerasaa kaya rumahh.</em>
+      </blockquote>
+
+      <div class="ink-line"></div>
+
+      <p class="small-copy">
+        Mungkinn bukan rumah yang sempurna.<br>
+        Tapi Tempat yang selalu pengen buat aku pulangg.
+      </p>
+    </div>
+  </template>
+  <template id="p4">
+    <div class="paper quiz"><span class="folio">04</span>
+      <div class="quiz-intro">
+        <p class="eyeline">QUESTION TIMEEE</p>
+        <h3>STEPPII.<br>Pertanyaaann seriuss inii.</h3>
+        <p>Seberapaa jauhh kamuu kenall KITA?</p><button class="ink-button startQuiz">buktiinn</button>
+      </div>
+      <div class="quiz-shell" hidden>
+        <div class="quiz-meta"><span class="quizCount">1 / 4</span><span>JANGANN overthink</span></div>
+        <h4 class="quizQuestion"></h4>
+        <div class="answers"></div>
+        <div class="quizReaction"></div>
+      </div>
+    </div>
+  </template>
+  <template id="p5">
+    <div class="paper result"><span class="folio">05</span>
+      <div class="result-sticker">classified</div>
+      <p class="eyeline">Hasillnyaa</p>
+      <h3 class="resultTitle">YEY LULUSS.</h3>
+      <p class="resultText">Jelas ga sih. Aku tetep bakal lulusin kamu sih tapi KWKWKW</p>
+      <div class="secret-note"><span>reward unlocked</span>
+        <p class="secretReward">1 ciumm pipii & UNLIMITED HUGGG</p>
+      </div><button class="ink-button small quizAgain">lagii? (KLIKK SINII)</button>
+    </div>
+  </template>
+  <template id="p6">
+    <div class="paper letter"><span class="folio">06</span>
+      <p class="letter-date">buat kapan pun kamu butuh inii</p>
+      <h3>Dear Step,</h3>
+      <div class="letter-text">
+        <p>asek wes kaya test IELTS aku wkkwkwwk. Akuuu sukaa semuaa momenn seruu barengg kamuu. Makasih ya buat semua momen yang dahh kamuu kasi ke akuu experience" BAHKAN LDR an yangg susah pun kerasa kek gampang kalo sama kamu, masiooo banyakk hal hall yang kita pengenn kayaa pengen ketemu, cerita langsung, pelukk, banyakk lahh. aku juga ga tau kapan pastinya kamuu jadi kek sebesar inii di hidupkuu WKKWKW keknya aku jatuh cinta kedua kalinya sama kamu WKWKWKWKWK LOVE YOU</p>
+      </div>
+      <div class="signature">always,<br><em>Robert</em></div>
+    </div>
+  </template>
+  <template id="p7">
+    <div class="paper final"><span class="folio">07</span>
+      <div class="final-center">
+        <p class="eyeline">last page</p>
+        <h3>kalo ada kesempatan buat<br>milih lagii—</h3><button class="final-answer">akuu bakall pilihh kamuu (klikk).</button>
+        <p class="after-answer">Lagi dan terus dan lagi TERUS.</p>
+      </div>
+    </div>
+  </template>
+  <template id="p8">
+    <div class="paper p8-final">
+      <span class="folio">08</span>
+
+      <header class="p8-title">
+        <p class="eyeline">some little pieces of us</p>
+        <h3>FOTOO<br>YANG BAGUS DI SIMPEN.</h3>
+      </header>
+
+      <div class="p8-grid">
+        <figure class="p8-photo"><img src="assets/photo-08-1.jpg" alt="Memory 01">
+          <figcaption>01</figcaption>
+        </figure>
+        <figure class="p8-photo"><img src="assets/photo-08-2.jpg" alt="Memory 02">
+          <figcaption>02</figcaption>
+        </figure>
+        <figure class="p8-photo"><img src="assets/photo-08-3.jpg" alt="Memory 03">
+          <figcaption>03</figcaption>
+        </figure>
+        <figure class="p8-photo"><img src="assets/photo-08-4.jpg" alt="Memory 04">
+          <figcaption>04</figcaption>
+        </figure>
+        <figure class="p8-photo"><img src="assets/photo-08-5.jpg" alt="Memory 05">
+          <figcaption>05</figcaption>
+        </figure>
+        <figure class="p8-photo"><img src="assets/photo-08-6.jpg" alt="Memory 06">
+          <figcaption>06</figcaption>
+        </figure>
+      </div>
+
+      <footer class="p8-timer">
+        <span class="p8-timer-label">KITAA SUDAAHHHH BARENGG SELAMAA</span>
+        <div class="p8-clock">
+          <b><strong id="loveDays">000</strong><small>DAYS</small></b>
+          <i>:</i>
+          <b><strong id="loveHours">00</strong><small>HOURS</small></b>
+          <i>:</i>
+          <b><strong id="loveMinutes">00</strong><small>MINS</small></b>
+          <i>:</i>
+          <b><strong id="loveSeconds">00</strong><small>SECS</small></b>
+        </div>
+        <em>since 26 · 06 · 2026 — 10:00 PM</em>
+      </footer>
+    </div>
+  </template>
+  <template id="blank">
+    <div class="paper blank-paper"></div>
+  </template>
+
+  <audio id="bgMusic" preload="metadata"></audio>
+  <div class="sound-gate" id="soundGate" role="dialog" aria-modal="true" aria-labelledby="soundGateTitle">
+    <div class="sound-gate-card">
+      <div class="sound-gate-disc" aria-hidden="true"><span>♥</span></div>
+      <p class="sound-gate-kicker">sebelumm kita mulai</p>
+      <h2 id="soundGateTitle">test suaraa duluu</h2>
+      <p class="sound-gate-copy">This little book is better with a song playing.</p>
+
+      <div class="sound-gate-actions">
+        <button type="button" class="sound-test-btn" id="soundTestBtn">
+          <span class="sound-test-icon">▶</span>
+          <span>
+            <strong>Test sound & enter</strong>
+            <!-- <small>music will keep playing</small> -->
+          </span>
+        </button>
+        <!-- <button type="button" class="sound-skip-btn" id="soundSkipBtn">enter without music</button> -->
+      </div>
+      <!-- <p class="sound-gate-note" id="soundGateNote">tap once so your browser can allow the music ♫</p> -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
