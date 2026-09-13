@@ -1,0 +1,6 @@
+Put your songs in this folder using these names:
+song-1.mp3
+song-2.mp3
+song-3.mp3
+
+To rename songs/artists, edit the `playlist` array near the bottom of script.js.
